@@ -1,0 +1,12 @@
+{
+  "name": "wuwjs",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "libs/*"
+  ],
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "fft-as",
+  "packageManager": "yarn@3.0.2",
+  "dependencies": {
+    "@assemblyscript/loader": "^0.19.17"
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.19.17"
+  },
+  "scripts": {
+    "asbuild:untouched": "asc assembly/index.ts --target debug",
+    "asbuild:optimized": "asc assembly/index.ts --target release",
+    "asbuild": "yarn asbuild:untouched && yarn asbuild:optimized",
+    "test": "node tests"
+  }
+}

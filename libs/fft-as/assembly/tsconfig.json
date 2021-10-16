@@ -1,0 +1,6 @@
+{
+  "extends": "../../../.yarn/cache/assemblyscript-npm-0.19.17-236ad93bfa-e11cc5472f.zip/node_modules/assemblyscript/std/assembly.json",
+  "include": [
+    "./**/*.ts"
+  ]
+}

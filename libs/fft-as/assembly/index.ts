@@ -7,15 +7,15 @@ import { add, subtract, multiply, exp, complex } from './complex';
  * https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm
  */
 export function fft(x: Float64Array): Float64Array {
-    if (x.length % 2 !== 0) {
-        throw new Error('input length must be even');
+    if (x.length == 0 || Math.log2(x.length) % 1 !== 0) {
+        throw new Error('input length must be a power of 2 and greater than 0');
     }
 
+    return _fft(x);
+}
+
+function _fft(x: Float64Array): Float64Array {
     const N = x.length / 2;
-    if (N == 0) {
-        throw new Error('input cannot be empty');
-    }
-
     const X = new Float64Array(N * 2);
 
     if (N == 1) {

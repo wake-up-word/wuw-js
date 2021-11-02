@@ -1,37 +1,61 @@
-// The entry file of your WebAssembly module.
-
-export function add(a: i32, b: i32): i32 {
-    return a + b;
-}
+import { add, subtract, multiply, exp, complex } from './complex';
 
 /**
  * FFT based on Cooley–Tukey algorithm
+ * First half of x are real parts, second half are imaginary parts.
+ * Given N complex numbers contained in x where Real parts are x[0..N] and Imaginary x[N+1..N*2-1]
+ * https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm
  */
-export function fft(x: f64[]) {
-    const X: f64[] = [];
-    const N = x.length;
+export function fft(x: Float64Array): Float64Array {
+    if (x.length % 2 !== 0) {
+        throw new Error('input length must be even');
+    }
+
+    const N = x.length / 2;
+    if (N == 0) {
+        throw new Error('input cannot be empty');
+    }
+
+    const X = new Float64Array(N * 2);
 
     if (N == 1) {
         X[0] = x[0];
-    } else {
-        const evens_x: f64[] = [];
-        const odds_x: f64[] = [];
-        x.forEach((v, i) => {
-            if (i % 2 == 0) {
-                evens_x.push(v);
-            } else {
-                odds_x.push(v);
-            }
-        });
+        X[1] = x[1];
+        return X;
+    }
 
-        const evens_X = fft(evens_x);
-        const odds_X = fft(odds_x);
+    const halfLength = N / 2;
+    const evens_x = new Float64Array(halfLength * 2);
+    const odds_x = new Float64Array(halfLength * 2);
 
-        for (let k = 0; k < N / 2 - 1; k++) {
-            const p = X[k];
-            const q = Math.exp()
+    for (let i = 0; i < N; i++) {
+        if (i % 2 == 0) {
+            evens_x[i / 2] = x[i];
+            evens_x[i / 2 + halfLength / 2] = x[i + N];
+        } else {
+            odds_x[i / 2 + 1] = x[i];
+            odds_x[i / 2 + halfLength / 2 + 1] = x[i + N];
         }
+    }
+
+    const evens_X = fft(evens_x);
+    const odds_X = fft(odds_x);
+
+    for (let k = 0; k < N / 2; k++) {
+        const p = complex(evens_X[k], evens_X[k + halfLength]);
+        const q = multiply(exp((-2 * Math.PI / N) * k), complex(odds_X[k], odds_X[k + halfLength]));
+
+        const sum = add(p, q);
+        X[k] = sum[0];
+        X[k + N] = sum[1];
+
+        const difference = subtract(p, q);
+        X[k + N / 2] = difference[0];
+        X[k + N / 2 + N] = difference[1];
     }
 
     return X;
 }
+
+// Unique Float64Array id when allocating in JavaScript
+export const Float64Arrayy_ID = idof<Float64Array>()

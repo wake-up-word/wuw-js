@@ -23,6 +23,7 @@ package-lock.json
 # Build output
 dist
 tsconfig.tsbuildinfo
+build
 
 # Coverage reports
 coverage

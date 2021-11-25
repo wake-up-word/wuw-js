@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "composite": true,
+        "sourceMap": true,
+        "declaration": true,
+        "declarationMap": true,
+        "strict": true,
+        "moduleResolution": "node",
+        "module": "es6",
+        "target": "ES2015",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "lib": [
+            "esnext"
+        ]
+    }
+}

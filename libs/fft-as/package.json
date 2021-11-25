@@ -1,21 +1,39 @@
 {
     "name": "fft-as",
     "packageManager": "yarn@3.0.2",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "browser": "./dist/browser.js",
     "dependencies": {
         "@assemblyscript/loader": "^0.19.17"
     },
     "devDependencies": {
+        "@rollup/plugin-typescript": "^8.3.0",
+        "@rollup/plugin-wasm": "^5.1.2",
+        "@types/node": "^16.11.6",
         "@typescript-eslint/eslint-plugin": "^5.3.0",
         "@typescript-eslint/parser": "^5.3.0",
+        "@yarnpkg/pnpify": "^3.1.1-rc.2",
         "assemblyscript": "^0.19.17",
         "eslint": "^7.1.0",
+        "rollup": "^2.59.0",
+        "source-map-support": "^0.5.20",
+        "ts-node": "^10.4.0",
+        "tslib": "^2.3.1",
         "typescript": "^4.4.4"
     },
     "scripts": {
-        "build": "yarn asbuild:debug",
-        "asbuild:untouched": "asc assembly/index.ts --sourceMap --debug --exportRuntime --target debug ",
-        "asbuild:optimized": "asc assembly/index.ts --exportRuntime --target release",
+        "build": "yarn asbuild && yarn tsc",
+        "tsc": "yarn pnpify tsc -b -v",
+        "asbuild:untouched": "asc assembly/index.ts --target debug ",
+        "asbuild:optimized": "asc assembly/index.ts --target release",
         "asbuild": "yarn asbuild:untouched && yarn asbuild:optimized",
-        "test": "node tests"
+        "lint": "yarn eslint",
+        "test": "node -r source-map-support/register tests",
+        "browser": "http-server -a localhost -p 3000 --cors ",
+        "bundle": "rollup src/index.ts --config rollup.config.ts --file dist/browser.js --format umd --name 'myBundle'"
+    },
+    "peerDependencies": {
+        "@types/node": "*"
     }
 }

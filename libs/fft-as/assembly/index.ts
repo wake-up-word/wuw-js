@@ -38,8 +38,8 @@ function _fft(x: Float64Array): Float64Array {
         }
     }
 
-    const evens_X = fft(evens_x);
-    const odds_X = fft(odds_x);
+    const evens_X = _fft(evens_x);
+    const odds_X = _fft(odds_x);
 
     for (let k = 0; k < N / 2; k++) {
         const p = complex(evens_X[k], evens_X[k + halfLength]);
@@ -58,4 +58,4 @@ function _fft(x: Float64Array): Float64Array {
 }
 
 // Unique Float64Array id when allocating in JavaScript
-export const Float64Arrayy_ID = idof<Float64Array>()
+export const Float64Arrayy_ID = idof<Float64Array>();

@@ -1565,9 +1565,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fft-as@workspace:libs/fft-as":
+"fft-as@workspace:modules/fft-as":
   version: 0.0.0-use.local
-  resolution: "fft-as@workspace:libs/fft-as"
+  resolution: "fft-as@workspace:modules/fft-as"
   dependencies:
     "@assemblyscript/loader": ^0.19.17
     "@rollup/plugin-typescript": ^8.3.0
@@ -2849,9 +2849,9 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"rollup-plugin-wasm-base64@workspace:*, rollup-plugin-wasm-base64@workspace:libs/rollup-plugin-wasm-base64":
+"rollup-plugin-wasm-base64@workspace:*, rollup-plugin-wasm-base64@workspace:modules/rollup-plugin-wasm-base64":
   version: 0.0.0-use.local
-  resolution: "rollup-plugin-wasm-base64@workspace:libs/rollup-plugin-wasm-base64"
+  resolution: "rollup-plugin-wasm-base64@workspace:modules/rollup-plugin-wasm-base64"
   dependencies:
     "@types/node": ^14.17.34
     "@yarnpkg/pnpify": "*"

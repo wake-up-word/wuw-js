@@ -2,10 +2,10 @@
     "files":[],
     "references": [
         {
-            "path": "./libs/fft-as"
+            "path": "./modules/fft-as"
         },
         {
-            "path": "./libs/rollup-plugin-wasm-base64"
+            "path": "./modules/rollup-plugin-wasm-base64"
         }
     ]
 }

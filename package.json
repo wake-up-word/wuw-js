@@ -7,7 +7,7 @@
     "build": "yarn workspaces foreach run build"
   },
   "workspaces": [
-    "libs/*",
+    "modules/*",
     "demo"
   ],
   "devDependencies": {

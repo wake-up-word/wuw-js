@@ -2,34 +2,10 @@
 <html>
   <head>
     <meta  charset="utf-8">
-    <title>Simple template</title>
+    <title>Browser test</title>
   </head>
   <body>
-    <script src="./index-browser.js"></script>
-    <script>
-
-    //   var memory = new  WebAssembly.Memory({initial:1});
-
-    //   function  consoleLogString(offset, length) {
-    //     var  bytes = new  Uint8Array(memory.buffer, offset, length);
-    //     var  string = new  TextDecoder('utf8').decode(bytes);
-    //     console.log(string);
-    //   };
-
-    //   var  importObject = {
-    //     console: {
-    //       log:  consoleLogString
-    //     },
-    //     js : {
-    //       mem:  memory
-    //     }
-    //   };
-
-    //   WebAssembly.instantiateStreaming(fetch('helloworld.wasm'), importObject)
-    //   .then(obj  => {
-    //     obj.instance.exports.helloWorld();
-    //   });
-
-    </script>
+    <script src="../dist/browser-test.js"></script>
+    <h1>Browser test</h1>
   </body>
 </html>

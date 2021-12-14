@@ -4,7 +4,6 @@
     "compilerOptions": {
         "outDir": "dist",
         "rootDir": "src",
-        "esModuleInterop": true,
         "lib": [
             "ESNext",
             "DOM"
@@ -12,9 +11,7 @@
     },
     "exclude": [
         "dist",
-        "assembly",
-        "tests",
-        "rollup.config.ts"
+        "tests"
     ],
     "references": [
     ]

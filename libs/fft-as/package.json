@@ -9,29 +9,32 @@
     },
     "devDependencies": {
         "@rollup/plugin-typescript": "^8.3.0",
-        "@rollup/plugin-wasm": "^5.1.2",
         "@types/node": "^16.11.6",
         "@typescript-eslint/eslint-plugin": "^5.3.0",
         "@typescript-eslint/parser": "^5.3.0",
         "@yarnpkg/pnpify": "^3.1.1-rc.2",
         "assemblyscript": "^0.19.17",
         "eslint": "^7.1.0",
+        "rimraf": "^3.0.2",
         "rollup": "^2.59.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-wasm-base64": "workspace:*",
         "source-map-support": "^0.5.20",
         "ts-node": "^10.4.0",
         "tslib": "^2.3.1",
         "typescript": "^4.4.4"
     },
     "scripts": {
-        "build": "yarn asbuild && yarn tsc",
+        "build": "yarn asbuild && yarn tsc && yarn bundle",
+        "clean": "yarn pnpify tsc -b --clean && yarn pnpify rimraf dist build",
         "tsc": "yarn pnpify tsc -b -v",
         "asbuild:untouched": "asc assembly/index.ts --target debug ",
         "asbuild:optimized": "asc assembly/index.ts --target release",
         "asbuild": "yarn asbuild:untouched && yarn asbuild:optimized",
         "lint": "yarn eslint",
-        "test": "node -r source-map-support/register tests",
-        "browser": "http-server -a localhost -p 3000 --cors ",
-        "bundle": "rollup src/index.ts --config rollup.config.ts --file dist/browser.js --format umd --name 'myBundle'"
+        "test": "ts-node -r source-map-support/register tests/index.ts",
+        "bundle": "yarn pnpify rollup src/index.ts --config rollup.config.ts --file dist/browser.js --format umd --name 'myBundle'",
+        "bundle-test": "yarn pnpify rollup tests/browser-test.ts --config ./tests/rollup.browser.config.ts --file dist/browser-test.js --format umd"
     },
     "peerDependencies": {
         "@types/node": "*"

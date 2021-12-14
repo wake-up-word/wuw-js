@@ -6,7 +6,7 @@
         "declarationMap": true,
         "strict": true,
         "moduleResolution": "node",
-        "module": "es6",
+        "module": "commonjs",
         "target": "ES2015",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,

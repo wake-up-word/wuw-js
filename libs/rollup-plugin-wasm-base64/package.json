@@ -1,0 +1,20 @@
+{
+    "name": "rollup-plugin-wasm-base64",
+    "packageManager": "yarn@3.0.2",
+    "main": "./dist/index.js",
+    "types": "./dist/types.d.ts",
+    "scripts": {
+        "build": "yarn pnpify tsc -b -v",
+        "watch": "yarn pnpify tsc -b -w",
+        "clean": "yarn pnpify tsc -b --clean"
+    },
+    "devDependencies": {
+        "@types/node": "^14.17.34",
+        "@yarnpkg/pnpify": "*",
+        "rollup": "^2.23.0",
+        "typescript": "*"
+    },
+    "peerDependencies": {
+        "rollup": "^1.20.0 || ^2.0.0"
+    }
+}

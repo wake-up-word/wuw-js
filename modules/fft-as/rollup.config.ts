@@ -3,8 +3,9 @@ import typescript from '@rollup/plugin-typescript';
 
 export default {
     output: {
-        file: 'output.js',
-        format: 'cjs',
+        name: 'fft-as',
+        file: 'dist/bundle.js',
+        format: 'umd',
         sourcemap: 'inline'
     },
     plugins: [

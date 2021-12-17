@@ -32,7 +32,7 @@
         "asbuild": "yarn asbuild:untouched && yarn asbuild:optimized",
         "lint": "yarn eslint",
         "test": "ts-node -r source-map-support/register tests/index.ts",
-        "bundle": "yarn pnpify rollup src/index.ts --config rollup.config.ts --file dist/bundle.js --format umd --name 'fft-as'",
+        "bundle": "yarn pnpify rollup src/index.ts --config rollup.config.ts",
         "bundle-test": "yarn pnpify rollup tests/browser-test.ts --config ./tests/rollup.browser.config.ts --file dist/browser-test.js --format umd"
     },
     "peerDependencies": {

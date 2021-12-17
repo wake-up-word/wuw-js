@@ -1,22 +1,35 @@
 {
-  "name": "wuwjs",
-  "main": "index.js",
-  "license": "MIT",
-  "private": true,
-  "scripts": {
-    "build": "yarn workspaces foreach run build"
-  },
-  "workspaces": [
-    "modules/*",
-    "demo"
-  ],
-  "devDependencies": {
-    "eslint": "^8.1.0",
-    "typescript": "*"
-  },
-  "resolutions": {
-    "typescript": "4.4.3",
-    "@yarnpkg/pnpify": "^2.3.2"
-  },
-  "packageManager": "yarn@3.0.2"
+    "name": "wuwjs",
+    "main": "index.js",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "build": "yarn workspaces foreach run build"
+    },
+    "workspaces": [
+        "modules/*",
+        "demo"
+    ],
+    "devDependencies": {
+        "eslint": "^8.1.0",
+        "typescript": "*"
+    },
+    "resolutions": {
+        "@assemblyscript/loader": "^0.19.17",
+        "@rollup/plugin-typescript": "^8.3.0",
+        "@types/node": "^16.11.6",
+        "@typescript-eslint/eslint-plugin": "^5.3.0",
+        "@typescript-eslint/parser": "^5.3.0",
+        "eslint": "^7.1.0",
+        "source-map-support": "^0.5.20",
+        "rollup": "^2.59.0",
+        "rimraf": "^3.0.2",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "assemblyscript": "0.19.22",
+        "typescript": "4.4.3",
+        "ts-node": "^10.4.0",
+        "tslib": "^2.3.1",
+        "@yarnpkg/pnpify": "^3.1.1-rc.2"
+    },
+    "packageManager": "yarn@3.0.2"
 }

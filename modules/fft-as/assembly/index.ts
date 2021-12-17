@@ -28,14 +28,9 @@ function _fft(x: Float64Array): Float64Array {
     const evens_x = new Float64Array(halfLength * 2);
     const odds_x = new Float64Array(halfLength * 2);
 
-    for (let i = 0; i < N; i++) {
-        if (i % 2 == 0) {
-            evens_x[i / 2] = x[i];
-            evens_x[i / 2 + halfLength / 2] = x[i + N];
-        } else {
-            odds_x[i / 2 + 1] = x[i];
-            odds_x[i / 2 + halfLength / 2 + 1] = x[i + N];
-        }
+    for (let i = 0; i < X.length; i += 2) {
+        evens_x[i / 2] = x[i];
+        odds_x[i / 2] = x[i + 1];
     }
 
     const evens_X = _fft(evens_x);

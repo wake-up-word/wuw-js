@@ -8,19 +8,15 @@ myModule.instantiate().then(exports => {
     const FREQUENCY = 20;
     const samples = Array.from(Array(LENGTH).keys())
         .map(x => Math.sin(x * FREQUENCY))
-        .concat(new Array(LENGTH).fill(0))
-    // const samples = getSamples();
-    // console.log(samples);
+        .concat(new Array(LENGTH).fill(0));
 
-    fs.writeFileSync('./samples.txt', samples.join('\n'))
-
+    fs.writeFileSync('./samples.txt', samples.join('\n'));
 
     const result = exports.fft(samples);
     console.log(result);
 
-    fs.writeFileSync('./result.txt', result.join('\n'))
+    fs.writeFileSync('./result.txt', result.join('\n'));
 
-    // assert.strictEqual(myModule.fft(samples), 3);
     console.log("ok");
 });
 

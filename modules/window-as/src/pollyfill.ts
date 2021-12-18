@@ -22,6 +22,5 @@ const _global = (() => {
     throw new Error('unable to locate global object');
 })() as any;
 
-
 _global.idof = _idof;
 _global.StaticArray = StaticArray;

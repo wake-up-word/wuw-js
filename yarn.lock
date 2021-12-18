@@ -3235,6 +3235,31 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
+"window-as@workspace:modules/window-as":
+  version: 0.0.0-use.local
+  resolution: "window-as@workspace:modules/window-as"
+  dependencies:
+    "@assemblyscript/loader": ^0.19.17
+    "@rollup/plugin-typescript": ^8.3.0
+    "@types/node": ^16.11.6
+    "@typescript-eslint/eslint-plugin": ^5.3.0
+    "@typescript-eslint/parser": ^5.3.0
+    "@yarnpkg/pnpify": "*"
+    assemblyscript: "*"
+    eslint: "*"
+    rimraf: "*"
+    rollup: "*"
+    rollup-plugin-node-resolve: "*"
+    rollup-plugin-wasm-base64: "workspace:*"
+    source-map-support: "*"
+    ts-node: "*"
+    tslib: "*"
+    typescript: "*"
+  peerDependencies:
+    "@types/node": "*"
+  languageName: unknown
+  linkType: soft
+
 "word-wrap@npm:^1.2.3":
   version: 1.2.3
   resolution: "word-wrap@npm:1.2.3"

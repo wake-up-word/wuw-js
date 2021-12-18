@@ -7,11 +7,10 @@ myModule.instantiate().then(exports => {
     const LENGTH = 512;
     const FREQUENCY = 20;
     const samples = Array.from(Array(LENGTH).keys())
-        .map(x => Math.sin(x * FREQUENCY))
-        .concat(new Array(LENGTH).fill(0))
+        .map(x => Math.sin(x * FREQUENCY));
 
     console.log(samples);
-    const result = exports.fft(samples);
+    const result = exports.window(samples, myModule.Window.Hamming);
     console.log(result);
     console.log("ok");
 });

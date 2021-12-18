@@ -6,8 +6,7 @@ export default {
         name: 'fft-as',
         file: 'dist/bundle.js',
         format: 'umd',
-        sourcemap: 'inline',
-        generatedCode: 'es5'
+        sourcemap: 'inline'
     },
     plugins: [
         wasm(),

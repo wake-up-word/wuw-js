@@ -2109,6 +2109,31 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
+"mfcc-as@workspace:modules/mfcc-as":
+  version: 0.0.0-use.local
+  resolution: "mfcc-as@workspace:modules/mfcc-as"
+  dependencies:
+    "@assemblyscript/loader": ^0.19.17
+    "@rollup/plugin-typescript": "*"
+    "@types/node": "*"
+    "@typescript-eslint/eslint-plugin": "*"
+    "@typescript-eslint/parser": "*"
+    "@yarnpkg/pnpify": "*"
+    assemblyscript: "*"
+    eslint: "*"
+    rimraf: "*"
+    rollup: "*"
+    rollup-plugin-node-resolve: "*"
+    rollup-plugin-wasm-base64: "workspace:*"
+    source-map-support: "*"
+    ts-node: "*"
+    tslib: "*"
+    typescript: "*"
+  peerDependencies:
+    "@types/node": "*"
+  languageName: unknown
+  linkType: soft
+
 "micromatch@npm:^4.0.2, micromatch@npm:^4.0.4":
   version: 4.0.4
   resolution: "micromatch@npm:4.0.4"
@@ -3278,6 +3303,8 @@ fsevents@~2.3.2:
   version: 0.0.0-use.local
   resolution: "wuwjs@workspace:."
   dependencies:
+    "@typescript-eslint/eslint-plugin": "*"
+    "@typescript-eslint/parser": "*"
     eslint: ^8.1.0
     typescript: "*"
   languageName: unknown

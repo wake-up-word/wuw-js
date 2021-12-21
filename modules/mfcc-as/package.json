@@ -1,0 +1,41 @@
+{
+    "name": "mfcc-as",
+    "packageManager": "yarn@3.0.2",
+    "main": "./dist/bundle.js",
+    "types": "./dist/src/index.d.ts",
+    "dependencies": {
+        "@assemblyscript/loader": "^0.19.17"
+    },
+    "devDependencies": {
+        "@rollup/plugin-typescript": "*",
+        "@types/node": "*",
+        "@typescript-eslint/eslint-plugin": "*",
+        "@typescript-eslint/parser": "*",
+        "@yarnpkg/pnpify": "*",
+        "assemblyscript": "*",
+        "eslint": "*",
+        "rimraf": "*",
+        "rollup": "*",
+        "rollup-plugin-node-resolve": "*",
+        "rollup-plugin-wasm-base64": "workspace:*",
+        "source-map-support": "*",
+        "ts-node": "*",
+        "tslib": "*",
+        "typescript": "*"
+    },
+    "scripts": {
+        "build": "yarn asbuild && yarn tsc && yarn bundle",
+        "clean": "yarn pnpify tsc -b --clean && yarn pnpify rimraf dist build",
+        "tsc": "yarn pnpify tsc -b -v",
+        "asbuild:untouched": "asc assembly/index.ts --target debug ",
+        "asbuild:optimized": "asc assembly/index.ts --target release",
+        "asbuild": "yarn asbuild:untouched && yarn asbuild:optimized",
+        "lint": "yarn eslint",
+        "test": "ts-node -r source-map-support/register tests/index.ts",
+        "bundle": "yarn pnpify rollup src/index.ts --config rollup.config.ts",
+        "bundle-test": "yarn pnpify rollup tests/browser-test.ts --config ./tests/rollup.browser.config.ts --file dist/browser-test.js --format umd"
+    },
+    "peerDependencies": {
+        "@types/node": "*"
+    }
+}
